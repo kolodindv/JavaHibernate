@@ -1,0 +1,6 @@
+DAO\IUserDao.class
+Main.class
+DAO\SessionFactory\SessionFactoryUtil.class
+Logic\MySystem.class
+Entities\User.class
+DAO\Impl\UserDao.class

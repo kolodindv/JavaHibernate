@@ -8,10 +8,13 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
     private static StandardServiceRegistry standardServiceRegistry;
     private static SessionFactory sessionFactory;
+//    private static MetadataSources MetadataSources
+//    private static Metadata metadata;
 
     static{
         if (sessionFactory == null) {
@@ -39,6 +42,14 @@ public class HibernateUtil {
     }
     //Utility method to return SessionFactory
     public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+            // Create MetadataSources
+            MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
+            // Create Metadata
+            Metadata metadata = metadataSources.getMetadataBuilder().build();
+            // Create SessionFactory
+            sessionFactory = metadata.getSessionFactoryBuilder().build();
+        }
         return sessionFactory;
     }
 }

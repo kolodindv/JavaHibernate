@@ -3,7 +3,7 @@ package Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,7 @@ public class User {
         this.login = login;
         this.passwordHashCode = passwordHashCode;
     }
+
 
     public int getIdUser() {
         return idUser;
@@ -43,5 +44,6 @@ public class User {
     public void setPasswordHashCode(int passwordHashCode) {
         this.passwordHashCode = passwordHashCode;
     }
+
 }
 
